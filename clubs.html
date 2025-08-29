@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science & Technology Clubs | College Name</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1a2a6c, #2b5876);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #4fc3f7;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Clubs Container */
+        .clubs-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        /* Club Card */
+        .club-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .club-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .club-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .club-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .club-card:hover .club-image img {
+            transform: scale(1.05);
+        }
+        
+        .club-content {
+            padding: 1.5rem;
+        }
+        
+        .club-name {
+            font-size: 1.5rem;
+            color: #1a2a6c;
+            margin-bottom: 0.5rem;
+        }
+        
+        .club-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            height: 80px;
+            overflow: hidden;
+        }
+        
+        .club-details {
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+        
+        .club-contact {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+        
+        .club-contact i {
+            color: #1a2a6c;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .club-socials {
+            display: flex;
+            margin-top: 1rem;
+        }
+        
+        .club-socials a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: #f1f1f1;
+            color: #1a2a6c;
+            border-radius: 50%;
+            margin-right: 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .club-socials a:hover {
+            background: #1a2a6c;
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a2a6c;
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: #4fc3f7;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #4fc3f7;
+        }
+        
+        .footer-contact {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: #4fc3f7;
+        }
+        
+        .footer-social {
+            display: flex;
+            margin-top: 1.5rem;
+        }
+        
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background: #4fc3f7;
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+            
+            .clubs-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-text">Science & Technology Council</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#" class="active">Clubs</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Science & Technology Clubs</h1>
+        <p>Want to get creative, build cool stuff, or just geek out with other students? Our clubs are where it happens.</p>
+    </section>
+
+    <!-- Clubs Listing -->
+    <div class="clubs-container">
+        <!-- Club 1 -->
+        <div class="club-card">
+            <div class="club-image">
+                <img src="connection_network_infinity_full_logo.png" alt="Robotics Club">
+            </div>
+            <div class="club-content">
+                <h2 class="club-name">Coding Club</h2>
+                <p class="club-description">The Coding Club, promoting programming and technology on campus.</p>
+                <div class="club-details">
+                    <div class="club-contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>ccit@iisertvm.ac.in</span>
+                    </div>
+
+                    <div class="club-socials">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Club 2 -->
+        <div class="club-card">
+            <div class="club-image">
+                <img src="logos/CMIT_Logo_Transparent.png" alt="Coding Club">
+            </div>
+            <div class="club-content">
+                <h2 class="club-name">CMIT</h2>
+                <p class="club-description">The Club of Mathematics, fostering mathematical exploration and appreciation.</p>
+                <div class="club-details">
+                    <div class="club-contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>cmit@iisertvm.ac.in</span>
+                    </div>
+                   
+                    <div class="club-socials">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Club 3 -->
+        <div class="club-card">
+            <div class="club-image">
+                <img src="logos/CSIT logo.png" alt="Astronomy Club">
+            </div>
+            <div class="club-content">
+                <h2 class="club-name">CSIT</h2>
+                <p class="club-description">The Chemical Society, uniting chemistry enthusiasts for scientific exchange.</p>
+                <div class="club-details">
+                    <div class="club-contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>csit@iisertvm.ac.in</span>
+                    </div>
+ 
+                    <div class="club-socials">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Club 4 -->
+        <div class="club-card">
+            <div class="club-image">
+                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Biotech Club">
+            </div>
+            <div class="club-content">
+                <h2 class="club-name">Biotech Club</h2>
+                <p class="club-description">The Biotech Club explores the intersection of biology and technology. We work on projects related to genetic engineering, bioinformatics, and more.</p>
+                <div class="club-details">
+                    <div class="club-contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>biotech@college.edu</span>
+                    </div>
+                    <div class="club-contact">
+                        <i class="fas fa-users"></i>
+                        <span>45 Members</span>
+                    </div>
+                    <div class="club-socials">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Club 5 -->
+        <div class="club-card">
+            <div class="club-image">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="AI Club">
+            </div>
+            <div class="club-content">
+                <h2 class="club-name">AI & Machine Learning Club</h2>
+                <p class="club-description">The AI Club delves into artificial intelligence, machine learning, and data science. We work on real-world projects and research papers.</p>
+                <div class="club-details">
+                    <div class="club-contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>ai-ml@college.edu</span>
+                    </div>
+                    <div class="club-contact">
+                        <i class="fas fa-users"></i>
+                        <span>90 Members</span>
+                    </div>
+                    <div class="club-socials">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-kaggle"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Club 6 -->
+        <div class="club-card">
+            <div class="club-image">
+                <img src="https://images.unsplash.com/photo-1563207153-f403bf289096?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Renewable Energy Club">
+            </div>
+            <div class="club-content">
+                <h2 class="club-name">Renewable Energy Club</h2>
+                <p class="club-description">The Renewable Energy Club focuses on sustainable energy solutions. We work on solar, wind, and other alternative energy projects.</p>
+                <div class="club-details">
+                    <div class="club-contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>energy@college.edu</span>
+                    </div>
+                    <div class="club-contact">
+                        <i class="fas fa-users"></i>
+                        <span>55 Members</span>
+                    </div>
+                    <div class="club-socials">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>The Science & Technology Council promotes innovation, research, and technical skills development among students through various clubs and activities.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Clubs</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <div class="footer-contact">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>College Campus, City, State - PIN</span>
+                </div>
+                <div class="footer-contact">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 9876543210</span>
+                </div>
+                <div class="footer-contact">
+                    <i class="fas fa-envelope"></i>
+                    <span>st-council@college.edu</span>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 College Science & Technology Council. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for club cards when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const clubCards = document.querySelectorAll('.club-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            clubCards.forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
