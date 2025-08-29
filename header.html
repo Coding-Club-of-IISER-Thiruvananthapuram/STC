@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /*
+        STC Website Header Stylesheet
+        Contains styles exclusively for the site header and navigation.
+        */
+
+        /* --- 1. Color Palette & Root Variables --- */
+        :root {
+            --stc-purple: #4A2E7A;
+            --stc-blue: #6AC5F2;
+            --background-light: #FFFFFF;
+            --background-offwhite: #F5F5F7;
+            --text-primary: #1D1D1F;
+            --text-secondary: #86868B;
+            --border-color: #D2D2D7;
+        }
+
+        /* --- 2. Base & Typography --- */
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-weight: 400;
+            margin: 0;
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: var(--background-light); /* Fallback background color */
+        }
+
+        /* --- 3. Particle Animation Background --- */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Pushes animation to the very back */
+        }
+
+        /* --- 4. Navigation Bar --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 12px 5%;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000; /* Stays on top */
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .logo img {
+            height: 45px;
+            margin-right: 12px;
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 8px 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--stc-purple);
+        }
+
+        /* --- 5. Dropdown Styles --- */
+        .dropdown .dropbtn {
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--background-light);
+            min-width: 220px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 12px;
+            margin-top: 10px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .dropdown-content a {
+            color: var(--text-primary);
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--background-offwhite);
+            color: var(--stc-purple);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dropbtn .fa-chevron-down {
+            font-size: 0.75em;
+            margin-left: 6px;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown:hover .dropbtn .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        /* --- 6. Hamburger Menu --- */
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+        .hamburger .bar { width: 25px; height: 2px; background-color: var(--text-primary); border-radius: 5px; transition: all 0.3s ease; }
+
+        /* --- 7. Responsive Styles for Header --- */
+        @media (max-width: 992px) {
+            .logo span { display: none; }
+            .hamburger { display: flex; }
+            .nav-links { display: none; flex-direction: column; background-color: white; position: absolute; top: 70px; right: 0; width: 100%; text-align: center; box-shadow: 0 8px 16px rgba(0,0,0,0.1); padding-bottom: 20px; }
+            .nav-links.active { display: flex; }
+            .nav-links li { padding: 15px 0; }
+            .dropdown-content { position: static; display: none; box-shadow: none; background-color: #f9f9f9; width: 100%; border: none; margin-top: 15px; }
+            .dropdown:hover .dropdown-content { display: none; }
+            .dropdown.active .dropdown-content { display: block; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index2.html">
+                    <img src="SNT_Logo[1].png" alt="STC Logo">
+                    <span>STC - Science and Technology Council</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index2.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#about" class="dropbtn">About <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Director's Words</a>
+                        <a href="#">DOSA</a>
+                        <a href="#">Crucible</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="club_page.html" class="dropbtn">Clubs <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Physics Society</a>
+                        <a href="#">Coding Club</a>
+                        <a href="#">Electronics Club</a>
+                        <a href="#">Astronomy Club</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#events" class="dropbtn">Events <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Anvesha</a>
+                        <a href="#">Cafe Scientifique</a>
+                    </div>
+                </li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    </body>
+</html>
